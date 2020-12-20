@@ -1,0 +1,11 @@
+version: "3"
+services:
+  alfa-currency:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: alfa-currency
+    network_mode: host
+    ports:
+      - 8080:8080
+    restart: always
