@@ -13,5 +13,5 @@ public interface CurrencyHelpService {
      * @param date дата
      * @return курс
      */
-    public Optional<Currency> getCurrency(LocalDate date);
+    Optional<Currency> getCurrency(LocalDate date);
 }
