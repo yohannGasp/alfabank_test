@@ -11,6 +11,10 @@ import java.util.Optional;
 @Service
 public class CompareCurrencyServiceImpl implements CompareCurrencyService {
 
+    private static final String RATE_UP = "https://static8.depositphotos.com/1043073/1040/i/950/depositphotos_10406112-stock-photo-blue-data-space.jpg";
+    private static final String RATE_DOWN = "https://st2.depositphotos.com/2612745/6047/i/950/depositphotos_60472967-stock-photo-devaluation.jpg";
+    private static final String RATE_EQ = "https://st.depositphotos.com/1202020/4899/i/950/depositphotos_48990703-stock-photo-usd-jpy-exchange-rate.jpg";
+
     @Autowired
     private CurrencyHelpService currencyHelpService;
 
@@ -30,11 +34,11 @@ public class CompareCurrencyServiceImpl implements CompareCurrencyService {
 
         if (prevValue != null && todayValue != null) {
             if (todayValue.compareTo(prevValue) > 0) {
-                return "ссылка 1";
+                return String.format("<img src=\"%s\">", RATE_UP);
             } else if (todayValue.compareTo(prevValue) < 0) {
-                return "ссылка 2";
+                return String.format("<img src=\"%s\">", RATE_DOWN);
             } else {
-                return "курсы равны";
+                return String.format("<img src=\"%s\">", RATE_EQ);
             }
         }
         return "";
